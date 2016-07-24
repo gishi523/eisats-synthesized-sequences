@@ -24,7 +24,7 @@ namespace {
 		while (getline(ifs, line) && line[0] == '#') {}
 
 		int width, height, depth;
-		sscanf_s(line.c_str(), "%d %d %d", &width, &height, &depth);
+		sscanf(line.c_str(), "%d %d %d", &width, &height, &depth);
 		CV_Assert(depth == 32);
 
 		cv::Mat img(height, width, CV_32F);
@@ -42,9 +42,9 @@ namespace {
 		std::string line;
 		while (getline(ifs, line) && line[0] == '#') {}
 
-		sscanf_s(line.c_str(), "%lf %lf %lf %lf", &R(0, 0), &R(0, 1), &R(0, 2), &t(0)); getline(ifs, line);
-		sscanf_s(line.c_str(), "%lf %lf %lf %lf", &R(1, 0), &R(1, 1), &R(1, 2), &t(1)); getline(ifs, line);
-		sscanf_s(line.c_str(), "%lf %lf %lf %lf", &R(2, 0), &R(2, 1), &R(2, 2), &t(2));
+		sscanf(line.c_str(), "%lf %lf %lf %lf", &R(0, 0), &R(0, 1), &R(0, 2), &t(0)); getline(ifs, line);
+		sscanf(line.c_str(), "%lf %lf %lf %lf", &R(1, 0), &R(1, 1), &R(1, 2), &t(1)); getline(ifs, line);
+		sscanf(line.c_str(), "%lf %lf %lf %lf", &R(2, 0), &R(2, 1), &R(2, 2), &t(2));
 	}
 
 	void drawOpticalFlow(cv::Mat& img, const cv::Mat1f& flowx, const cv::Mat1f& flowy)
