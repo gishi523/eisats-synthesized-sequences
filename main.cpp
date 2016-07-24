@@ -112,6 +112,8 @@ int main(int argc, char *argv[])
 
 		// Read disparity map
 		cv::Mat disp = readRaw(dataPath + "/disparityGT-S2/stereo_" + numberString(frameNo) + ".raw");
+		if (disp.empty())
+			break;
 
 		// Read ego-motion
 		cv::Matx33d R;
